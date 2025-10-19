@@ -265,13 +265,13 @@ else if (menu == MENU_SET_ROT_DAYS) {
   lcd.setCursor(0,0);
   lcd.print("Set Rotation Days");
   lcd.setCursor(0,1);
-  lcd.print(rotationDays); lcd.print(" days (17–30)");
+  lcd.print(rotationDays); lcd.print(" days");
 
   if (up && rotationDays < 30) rotationDays++;
-  if (down && rotationDays > 17) rotationDays--;
+  if (down && rotationDays > 12) rotationDays--;
 
   // Clamp the value just in case
-  if (rotationDays < 17) rotationDays = 17;
+  if (rotationDays < 12) rotationDays = 12;
   if (rotationDays > 30) rotationDays = 30;
 
   if (right) { menu = MENU_START_STOP; lcd.clear(); }
@@ -279,7 +279,7 @@ else if (menu == MENU_SET_ROT_DAYS) {
 }
 
   else if (menu == MENU_START_STOP) {
-    lcd.setCursor(0,0); lcd.print("Start/Stop Incubation");
+    lcd.setCursor(0,0); lcd.print("Start/Stop Incubat.");
     lcd.setCursor(0,1); lcd.print("Status: ");
     lcd.print(incubationRunning ? "RUNNING " : "STOPPED");
     if (up || down) {
